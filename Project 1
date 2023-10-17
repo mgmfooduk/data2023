@@ -1,1 +1,40 @@
-Iris Dataset is considered as the Hello World for data science. It contains five columns namely – Petal Length, Petal Width, Sepal Length, Sepal Width, and Species Type. Iris is a flowering plant, the researchers have measured various features of the different iris flowers and recorded them digitally.
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+from skimage.io import imread, imshow
+
+from google.colab import files
+uploaded = files.upload()
+
+df = pd.read_csv('Iris.csv')
+print(df)
+
+df.head()
+df.info()
+df.describe()
+print(df.shape)
+print(df.columns)
+sns.pairplot(df)
+sns.pairplot(df, hue='Species')
+sns.countplot(x='Species', data=df)
+sns.histplot(data=df, x='SepalLengthCm')
+sns.histplot(data=df,x='SepalLengthCm',kde=True)
+sns.histplot(data=df,x='SepalLengthCm',kde=True,stat='density') 
+sns.histplot(data=df,x='SepalLengthCm',kde=True,stat='probability') 
+sns.histplot(data=df,x='SepalWidthCm')
+sns.histplot(data=df,x='SepalWidthCm',kde=True)
+sns.histplot(data=df,x='SepalWidthCm',kde=True,stat='density')
+sns.histplot(data=df,x='SepalWidthCm',kde=True,stat='probability')
+sns.histplot(data=df,x='PetalLengthCm')
+sns.histplot(data=df,x='PetalLengthCm',kde=True)
+sns.histplot(data=df,x='PetalLengthCm',kde=True,stat='density')
+sns.histplot(data=df,x='PetalLengthCm',kde=True,stat='probability')
+sns.histplot(data=df,x='PetalWidthCm')
+sns.histplot(data=df,x='PetalWidthCm',kde=True)
+sns.histplot(data=df,x='PetalWidthCm',kde=True,stat='density')
+sns.histplot(data=df,x='PetalWidthCm',kde=True,stat='probability')
+
+import statistics
+df.mean()
+df.median()
+df.std()
